@@ -1,3 +1,4 @@
 27. Final Project SetUp (Feb 4)
 28. Commons Setup and User Account models
 29. Home page and User authentication (Feb 9)
+30. User Authentication
