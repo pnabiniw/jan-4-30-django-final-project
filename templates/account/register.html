@@ -4,7 +4,7 @@
 {% block content %}
     <div class="row">
         <div class="col-md-6">
-            <img src="{% static 'account/login.svg' %}" style="height: 400px; width: 500px">
+            <img src="{% static 'account/register.svg' %}" style="height: 400px; width: 500px">
         </div>
         <div class="col-md-6">
             <div class="card" style="padding: 50px; border-color: black; margin-top: 50px">
@@ -13,7 +13,7 @@
                     {{ form.as_p }}
 
                     <button class="btn btn-success">Submit</button>
-                    <a href="{% url 'user_register' %}" class="btn btn-outline-success">Create a User</a>
+                    <a href="{% url 'user_login' %}" class="btn btn-outline-success">Already have an account</a>
                 </form>
             </div>
 
