@@ -126,3 +126,9 @@ MESSAGE_TAGS = {
     messages.WARNING: 'alert-warning',
     messages.ERROR: 'alert-danger',
 }
+
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_HOST_USER = '65870b7adeb255'
+EMAIL_HOST_PASSWORD = 'de122fcc9286ee'
+EMAIL_PORT = '2525'
+# EMAIL_USE_SSL = True

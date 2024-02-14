@@ -4,8 +4,10 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from django.contrib.auth.models import User
+from django.views.generic import DetailView
 
 from .forms import LoginForm, RegisterForm
+from .utils import send_registration_email
 
 
 def user_logout(request):
@@ -70,8 +72,19 @@ class UserRegister(CreateView):
             user = User.objects.create(**data)
             user.set_password(password)
             user.save()
+            # send_registration_email(user)
             messages.success(request, "User created successfully !!")
             return redirect("user_login")
         else:
             messages.error(request, "Something Went Wrong")
             return redirect("user_register")
+
+
+class UserProfile(DetailView):
+    template_name = 'account/user_profile.html'
+    queryset = User.objects.all()
+
+
+class UserProfileUpdate(CreateView):
+    template_name = 'account/update_profile.html'
+
