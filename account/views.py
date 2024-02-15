@@ -8,6 +8,7 @@ from django.views.generic import DetailView
 
 from .forms import LoginForm, RegisterForm
 from .utils import send_registration_email
+from .models import UserProfile
 
 
 def user_logout(request):
@@ -80,11 +81,41 @@ class UserRegister(CreateView):
             return redirect("user_register")
 
 
-class UserProfile(DetailView):
+class UserProfileView(DetailView):
     template_name = 'account/user_profile.html'
     queryset = User.objects.all()
 
 
 class UserProfileUpdate(CreateView):
     template_name = 'account/update_profile.html'
+    queryset = User.objects.all()
 
+    def get(self, request, *args, **kwargs):
+        id = self.kwargs['pk']
+        user = User.objects.get(id=id)
+        return render(request, template_name=self.template_name, context={"user": user})
+
+    def post(self, request, *args, **kwargs):
+        user = request.user
+        fn = request.POST.get("first_name")
+        ln = request.POST.get("last_name")
+        email = request.POST.get("email")
+        user.first_name = fn
+        user.last_name = ln
+        user.email = email
+        user.save()
+
+        phone_number = request.POST.get("phone_number")
+        address = request.POST.get("address")
+        bio = request.POST.get("bio")
+        pp = request.FILES.get('pp')
+        resume = request.FILES.get("resume")
+        up, _ = UserProfile.objects.update_or_create(phone_number=phone_number, address=address, bio=bio,
+                                                     defaults={"user": user})
+        if pp:
+            print(pp)
+            up.profile_picture = pp
+        if resume:
+            up.resume = resume
+        up.save()
+        return redirect("user_profile", user.id)

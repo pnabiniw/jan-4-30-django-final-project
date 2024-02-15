@@ -3,4 +3,5 @@
 29. Home page and User authentication (Feb 9)
 30. User Authentication
 31. User Registration (Feb 13)
-32.
+32. User Profile (Feb 14)
+33. User Profile Update (Feb 15)

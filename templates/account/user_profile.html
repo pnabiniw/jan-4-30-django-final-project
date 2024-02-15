@@ -30,7 +30,7 @@
                 <b>Resume</b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                 <a href="#">View</a>
             </p><br><br>
-            <a href="#" class="btn btn-success">Update</a>
+            <a href="{% url 'user_profile_update' request.user.id %}" class="btn btn-success">Update</a>
             <a href="{% url 'home' %}" class="btn btn-outline-success">Cancel</a>
         </div>
     </div>
