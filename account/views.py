@@ -112,6 +112,7 @@ class UserProfileUpdate(CreateView):
         resume = request.FILES.get("resume")
         up, _ = UserProfile.objects.update_or_create(phone_number=phone_number, address=address, bio=bio,
                                                      defaults={"user": user})
+        print(pp)
         if pp:
             print(pp)
             up.profile_picture = pp

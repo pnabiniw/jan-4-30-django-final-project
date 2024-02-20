@@ -1,0 +1,10 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+    <h1>{{ job.title }}</h1>
+    <br>
+    <p>{{ job.description }}</p>
+    <p><b>Category:</b> {{ job.category }}</p>
+    <p><b>Apply before {{ job.application_deadline }}</b></p>
+    <a href="{% url 'home' %}" class="btn btn-success">Cancel</a>
+{% endblock %}
