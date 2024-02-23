@@ -39,3 +39,12 @@ class JobApplication(BaseModel):
 
     def __str__(self):
         return f"Job application from {self.user.email}"
+
+
+class Contact(BaseModel):
+    name = models.CharField(max_length=50)
+    subject = models.CharField(max_length=50)
+    message = models.TextField(max_length=1000)
+
+    def __str__(self):
+        return f"Message from {self.name}"

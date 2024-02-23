@@ -1,0 +1,29 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+    <form method="post" action="{% url 'contact_us' %}">
+        {% csrf_token %}
+        <div>
+            <label>Name:</label>
+            <input type="text" name="name">
+        </div>
+        <br>
+
+        <div>
+            <label>Subject:</label>
+            <input type="text" name="subject">
+        </div>
+        <br>
+
+        <div>
+            <label>Message:</label>
+            <textarea type="text" name="message" style="height: 200px; width: 500px"></textarea>
+        </div>
+        <br>
+
+        <button type="submit" class="btn btn-success">Send Message</button>
+    </form><br>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.0300864202713!2d85.34223307525299!3d27.685464976195163!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb198d99470043%3A0x167d008efb47d64c!2sBroadway%20Infosys!5e0!3m2!1sen!2snp!4v1708687633129!5m2!1sen!2snp"
+            width="600" height="450" style="border:0; width: 1000px" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+{% endblock %}
